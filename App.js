@@ -1,17 +1,8 @@
 import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  Dimensions,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, Dimensions, View} from 'react-native';
 
 import {Provider as PaperProvider, TextInput, Button} from 'react-native-paper';
+import FadeCarousel from 'rn-fade-carousel';
 import eIcon from './assets/email.png';
 import pIcon from './assets/password.png';
 import svg1 from './assets/1.png';
@@ -21,16 +12,21 @@ import svg3 from './assets/3.png';
 const width = Dimensions.get('window').width;
 
 const App = () => {
+  const slides = [
+    <Image source={svg1} style={styles.Image} resizeMode="cover" />,
+    <Image source={svg2} style={styles.Image} resizeMode="cover" />,
+    <Image source={svg3} style={styles.Image} resizeMode="cover" />,
+  ];
   return (
     <PaperProvider>
       <View style={styles.Container}>
-        <View style={styles.upperContainer}>
-          <Image
-            source={require('./assets/3.png')}
-            resizeMode="cover"
-            style={styles.Image}
-          />
-        </View>
+        <FadeCarousel
+          elements={slides}
+          containerStyle={styles.upperContainer}
+          fadeDuration={1500}
+          stillDuration={1500}
+          start={true}
+        />
         <View style={styles.lowerContainer}>
           <TextInput
             mode="outlined"
@@ -40,6 +36,7 @@ const App = () => {
             left={<TextInput.Icon name={eIcon} />}
             outlineColor="#778899"
             activeOutlineColor="#000"
+            style={styles.TextInput}
           />
           <TextInput
             mode="outlined"
@@ -49,6 +46,7 @@ const App = () => {
             left={<TextInput.Icon name={pIcon} />}
             outlineColor="#778899"
             activeOutlineColor="#000"
+            style={styles.TextInput}
           />
           <Text style={{marginLeft: 'auto', marginVertical: 3}}>
             {' '}
@@ -78,9 +76,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  TextInput: {
+    marginVertical: 6,
+  },
   upperContainer: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   lowerContainer: {
     flex: 1,
