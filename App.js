@@ -1,111 +1,100 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  Dimensions,
   useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Provider as PaperProvider, TextInput, Button} from 'react-native-paper';
+import eIcon from './assets/email.png';
+import pIcon from './assets/password.png';
+import svg1 from './assets/1.png';
+import svg2 from './assets/2.png';
+import svg3 from './assets/3.png';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const width = Dimensions.get('window').width;
+
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <PaperProvider>
+      <View style={styles.Container}>
+        <View style={styles.upperContainer}>
+          <Image
+            source={require('./assets/3.png')}
+            resizeMode="cover"
+            style={styles.Image}
+          />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <View style={styles.lowerContainer}>
+          <TextInput
+            mode="outlined"
+            label="Email"
+            placeholder="email@domain.com"
+            keyboardType="email-address"
+            left={<TextInput.Icon name={eIcon} />}
+            outlineColor="#778899"
+            activeOutlineColor="#000"
+          />
+          <TextInput
+            mode="outlined"
+            label="Password"
+            placeholder="password"
+            secureTextEntry={true}
+            left={<TextInput.Icon name={pIcon} />}
+            outlineColor="#778899"
+            activeOutlineColor="#000"
+          />
+          <Text style={{marginLeft: 'auto', marginVertical: 3}}>
+            {' '}
+            Forgot Password?{' '}
+          </Text>
+
+          <Button color="#fff" style={styles.Button}>
+            Log In
+          </Button>
+
+          <Text style={{alignSelf: 'center', fontSize: 15, marginVertical: 9}}>
+            Don't have an account? <Text style={{color: 'blue'}}>Register</Text>
+          </Text>
+        </View>
+      </View>
+    </PaperProvider>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  Image: {
+    height: 300,
+    width: 300,
+    alignSelf: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  Container: {
+    flex: 1,
+    justifyContent: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  upperContainer: {
+    flex: 1,
+    justifyContent: 'center',
   },
-  highlight: {
-    fontWeight: '700',
+  lowerContainer: {
+    flex: 1,
+    paddingHorizontal: 12,
+  },
+  Button: {
+    backgroundColor: '#000',
+    color: '#fff',
+    marginTop: 45,
+    width: width / 2.7,
+    height: 42,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 9,
   },
 });
 
