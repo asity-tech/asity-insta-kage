@@ -1,6 +1,7 @@
 import React from 'react';
+import 'react-native-reanimated';
+import {View as MotiView} from 'moti';
 import {Image, StyleSheet, Text, Dimensions, View} from 'react-native';
-
 import {Provider as PaperProvider, TextInput, Button} from 'react-native-paper';
 import FadeCarousel from 'rn-fade-carousel';
 import eIcon from './assets/email.png';
@@ -28,38 +29,58 @@ const App = () => {
           start={true}
         />
         <View style={styles.lowerContainer}>
-          <TextInput
-            mode="outlined"
-            label="Email"
-            placeholder="email@domain.com"
-            keyboardType="email-address"
-            left={<TextInput.Icon name={eIcon} />}
-            outlineColor="#778899"
-            activeOutlineColor="#000"
-            style={styles.TextInput}
-          />
-          <TextInput
-            mode="outlined"
-            label="Password"
-            placeholder="password"
-            secureTextEntry={true}
-            left={<TextInput.Icon name={pIcon} />}
-            outlineColor="#778899"
-            activeOutlineColor="#000"
-            style={styles.TextInput}
-          />
+          <MotiView
+            from={{translateX: -150}}
+            animate={{translateX: 0}}
+            transition={{type: 'spring', stiffness: 300}}>
+            <TextInput
+              mode="outlined"
+              label="Email"
+              placeholder="email@domain.com"
+              keyboardType="email-address"
+              left={<TextInput.Icon name={eIcon} />}
+              outlineColor="#778899"
+              activeOutlineColor="#000"
+              style={styles.TextInput}
+            />
+          </MotiView>
+          <MotiView
+            from={{translateX: 150}}
+            animate={{translateX: 0}}
+            transition={{type: 'spring', stiffness: 300}}>
+            <TextInput
+              mode="outlined"
+              label="Password"
+              placeholder="password"
+              secureTextEntry={true}
+              left={<TextInput.Icon name={pIcon} />}
+              outlineColor="#778899"
+              activeOutlineColor="#000"
+              style={styles.TextInput}
+            />
+          </MotiView>
           <Text style={{marginLeft: 'auto', marginVertical: 3}}>
             {' '}
             Forgot Password?{' '}
           </Text>
-
-          <Button color="#fff" style={styles.Button}>
-            Log In
-          </Button>
-
-          <Text style={{alignSelf: 'center', fontSize: 15, marginVertical: 9}}>
-            Don't have an account? <Text style={{color: 'blue'}}>Register</Text>
-          </Text>
+          <MotiView
+            from={{translateX: -150}}
+            animate={{translateX: 0}}
+            transition={{type: 'spring', stiffness: 300}}>
+            <Button color="#fff" style={styles.Button}>
+              Log In
+            </Button>
+          </MotiView>
+          <MotiView
+            from={{translateX: 150}}
+            animate={{translateX: 0}}
+            transition={{type: 'spring', stiffness: 300}}>
+            <Text
+              style={{alignSelf: 'center', fontSize: 15, marginVertical: 9}}>
+              Don't have an account?{' '}
+              <Text style={{color: 'blue'}}>Register</Text>
+            </Text>
+          </MotiView>
         </View>
       </View>
     </PaperProvider>

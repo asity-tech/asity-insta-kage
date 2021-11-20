@@ -10,9 +10,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "moti": "^0.16.1",
     "react": "17.0.2",
     "react-native": "0.66.3",
     "react-native-paper": "^4.10.1",
+    "react-native-reanimated": "^2.3.0-beta.3",
     "rn-fade-carousel": "^1.0.0"
   },
   "devDependencies": {
