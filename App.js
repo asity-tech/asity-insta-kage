@@ -30,9 +30,9 @@ const App = () => {
         />
         <View style={styles.lowerContainer}>
           <MotiView
-            from={{translateX: -150}}
-            animate={{translateX: 0}}
-            transition={{type: 'spring', stiffness: 300}}>
+            from={{translateY: 30, opacity: 0}}
+            animate={{translateY: 0, opacity: 1}}
+            transition={{type: 'spring'}}>
             <TextInput
               mode="outlined"
               label="Email"
@@ -41,13 +41,14 @@ const App = () => {
               left={<TextInput.Icon name={eIcon} />}
               outlineColor="#778899"
               activeOutlineColor="#000"
-              style={styles.TextInput}
+              style={(styles.TextInput, {alignContent: 'center'})}
             />
           </MotiView>
           <MotiView
-            from={{translateX: 150}}
-            animate={{translateX: 0}}
-            transition={{type: 'spring', stiffness: 300}}>
+            from={{translateY: 30, opacity: 0}}
+            animate={{translateY: 0, opacity: 1}}
+            transition={{type: 'spring'}}
+            delay={210}>
             <TextInput
               mode="outlined"
               label="Password"
@@ -59,22 +60,30 @@ const App = () => {
               style={styles.TextInput}
             />
           </MotiView>
-          <Text style={{marginLeft: 'auto', marginVertical: 3}}>
-            {' '}
-            Forgot Password?{' '}
-          </Text>
           <MotiView
-            from={{translateX: -150}}
-            animate={{translateX: 0}}
-            transition={{type: 'spring', stiffness: 300}}>
+            from={{translateY: 30, opacity: 0}}
+            animate={{translateY: 0, opacity: 1}}
+            transition={{type: 'spring'}}
+            delay={300}>
+            <Text style={{marginLeft: 'auto', marginVertical: 3}}>
+              {' '}
+              Forgot Password?{' '}
+            </Text>
+          </MotiView>
+          <MotiView
+            from={{translateY: 30, opacity: 0}}
+            animate={{translateY: 0, opacity: 1}}
+            transition={{type: 'spring'}}
+            delay={390}>
             <Button color="#fff" style={styles.Button}>
               Log In
             </Button>
           </MotiView>
           <MotiView
-            from={{translateX: 150}}
-            animate={{translateX: 0}}
-            transition={{type: 'spring', stiffness: 300}}>
+            from={{translateY: 30, opacity: 0}}
+            animate={{translateY: 0, opacity: 1}}
+            transition={{type: 'spring'}}
+            delay={480}>
             <Text
               style={{alignSelf: 'center', fontSize: 15, marginVertical: 9}}>
               Don't have an account?{' '}
@@ -89,8 +98,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   Image: {
-    height: 300,
-    width: 300,
+    height: 360,
+    width: 360,
     alignSelf: 'center',
   },
   Container: {
@@ -98,7 +107,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   TextInput: {
-    marginVertical: 6,
+    marginVertical: 18,
+    height: 54,
   },
   upperContainer: {
     flex: 1,
@@ -113,8 +123,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     color: '#fff',
     marginTop: 45,
-    width: width / 2.7,
-    height: 42,
+    width: width - 24,
+    height: 54,
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 9,
