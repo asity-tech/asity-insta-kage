@@ -30,13 +30,15 @@ const App = () => {
     <PaperProvider>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.Container}>
-          <FadeCarousel
-            elements={slides}
-            containerStyle={styles.upperContainer}
-            fadeDuration={1500}
-            stillDuration={1500}
-            start={true}
-          />
+          <View style={styles.upperContainer}>
+            <FadeCarousel
+              elements={slides}
+              containerStyle={styles.Carousel}
+              fadeDuration={1500}
+              stillDuration={1500}
+              start={true}
+            />
+          </View>
           <View style={styles.lowerContainer}>
             <MotiView
               from={{translateY: 30, opacity: 0}}
@@ -113,20 +115,24 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   Container: {
-    flex: 1,
-    justifyContent: 'center',
+    height: Dimensions.get('window').height,
   },
   TextInput: {
     marginVertical: 18,
     height: 54,
   },
   upperContainer: {
-    flex: 1,
+    height: Dimensions.get('window').height / 2.4,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 16,
+    marginBottom: 9,
+  },
+  Carousel: {
+    height: '100%',
+    width: '100%',
   },
   lowerContainer: {
-    flex: 1,
     paddingHorizontal: 12,
   },
   Button: {
