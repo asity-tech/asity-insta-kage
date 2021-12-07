@@ -4,14 +4,14 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 
-const popular = () => {
-  const [tab, setTab] = useState(2);
+const Live = () => {
+  const [tab, setTab] = useState(4);
   return (
     <Layout tab={tab}>
-      This is a popular section!
+      This is a Live section!
       <div>Here's a div inside that</div>
     </Layout>
   );
 };
 
-export default popular;
+export default Live;

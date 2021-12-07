@@ -2,17 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { useState } from "react";
 
 const Layout = ({ tab, children }) => {
-  // const tabState = (index) => {
-  //   setTab(index);
-  // };
-
-  const clickHandler = (e) => {
-    console.log(e.view.window.location.href);
-  };
-
   return (
     <div className={styles.layout}>
       <head>
@@ -40,14 +31,17 @@ const Layout = ({ tab, children }) => {
         </div>
       </nav>
       <div className={styles.swiperNav}>
-        <Link href="/">
-          <span className={tab === 1 && styles.tabs}>Home</span>
-        </Link>
         <Link href="/following">
-          <span className={tab === 2 && styles.tabs}>Following</span>
+          <span className={tab === 1 && styles.tabs}>Following</span>
+        </Link>
+        <Link href="/popular">
+          <span className={tab === 2 && styles.tabs}>Popular</span>
         </Link>
         <Link href="/featured">
           <span className={tab === 3 && styles.tabs}>Featured</span>
+        </Link>
+        <Link href="/live">
+          <span className={tab === 4 && styles.tabs}>Live</span>
         </Link>
       </div>
       <div className={styles.contentContainer}>{children}</div>

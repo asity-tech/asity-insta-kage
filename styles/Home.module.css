@@ -117,7 +117,8 @@
 
 .layout {
   min-height: 100vh;
-  /* background-color: rebeccapurple; */
+  background-color: #131516;
+  color: #ffffff;
 }
 
 .navbar {
@@ -131,7 +132,7 @@
   width: 21vw;
   display: flex;
   justify-content: space-between;
-  color: black;
+  color: grey;
   margin-left: 6%;
 }
 
@@ -139,7 +140,7 @@
   width: 15vw;
   display: flex;
   justify-content: space-between;
-  color: black;
+  color: grey;
 }
 
 .swiperNav {
@@ -158,9 +159,13 @@
 }
 
 .tabs {
-  border-bottom: solid 3px black;
+  border-bottom: solid 3px grey;
 }
 
 .swiperNav span {
   cursor: pointer;
+}
+
+.Card {
+  background-image: url("https://picsum.photos/id/210/200/300");
 }
