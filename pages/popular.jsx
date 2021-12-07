@@ -3,13 +3,13 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 
-const Home = () => {
+const popular = () => {
   return (
     <Layout>
-      This is a Home section!
+      This is a popular section!
       <div>Here's a div inside that</div>
     </Layout>
   );
 };
 
-export default Home;
+export default popular;

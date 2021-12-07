@@ -114,3 +114,49 @@
     flex-direction: column;
   }
 }
+
+.layout {
+  min-height: 100vh;
+  background-color: rebeccapurple;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1.5rem;
+}
+
+.midNav {
+  width: 21vw;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-left: 6%;
+}
+
+.endNav {
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.swiperNav {
+  /* background-color: #0070f3; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contentContainer {
+  margin-top: 6%;
+  /* background-color: aqua; */
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.tabs {
+  border-bottom: solid 3px black;
+}
