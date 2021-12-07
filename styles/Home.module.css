@@ -117,7 +117,7 @@
 
 .layout {
   min-height: 100vh;
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
 }
 
 .navbar {
@@ -131,7 +131,7 @@
   width: 21vw;
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: black;
   margin-left: 6%;
 }
 
@@ -139,7 +139,7 @@
   width: 15vw;
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: black;
 }
 
 .swiperNav {
@@ -159,4 +159,8 @@
 
 .tabs {
   border-bottom: solid 3px black;
+}
+
+.swiperNav span {
+  cursor: pointer;
 }

@@ -4,12 +4,14 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { useState } from "react";
 
-const Layout = ({ children }) => {
-  const [tab, setTab] = useState(1);
-
+const Layout = ({ tab, children }) => {
   // const tabState = (index) => {
   //   setTab(index);
   // };
+
+  const clickHandler = (e) => {
+    console.log(e.view.window.location.href);
+  };
 
   return (
     <div className={styles.layout}>
@@ -38,34 +40,15 @@ const Layout = ({ children }) => {
         </div>
       </nav>
       <div className={styles.swiperNav}>
-        <div
-          className={tab === 1 && styles.tabs}
-          onClick={(e) => {
-            console.log(e.view.document);
-          }}
-        >
-          <Link href="/"> Home </Link>
-        </div>
-
-        <div
-          className={tab === 2 && styles.tabs}
-          onClick={() => {
-            setTab(2);
-            console.log(tab);
-          }}
-        >
-          <Link href="/following"> Following </Link>
-        </div>
-
-        <div
-          className={tab === 3 && styles.tabs}
-          onClick={() => {
-            setTab(3);
-            console.log(tab);
-          }}
-        >
-          <Link href="/featured"> Featured </Link>
-        </div>
+        <Link href="/">
+          <span className={tab === 1 && styles.tabs}>Home</span>
+        </Link>
+        <Link href="/following">
+          <span className={tab === 2 && styles.tabs}>Following</span>
+        </Link>
+        <Link href="/featured">
+          <span className={tab === 3 && styles.tabs}>Featured</span>
+        </Link>
       </div>
       <div className={styles.contentContainer}>{children}</div>
     </div>
